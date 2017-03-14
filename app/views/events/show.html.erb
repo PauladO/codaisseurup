@@ -9,12 +9,17 @@
     <hr />
     <p>Price:  <%= @event.price %></p>
     <p>Capacity:   <%= @event.capacity %><%= @event.capacity > 1 ? " guest" : " guests" %></p>
-    <br />
+    <hr />
 
     <h4>About</h4>
     <p><%= @event.description %></p>
     <p>Food included: <%= @event.includes_food ? "Yes" : "No" %></p>
     <p>Status:  <%= @event.active ? "Active" : "Inactive" %></p>
+    <hr />
+    <h5>Themes</h5>
+    <% @categories.each do |category| %>
+      <span class="label label-success"><%= category.name %></span>
+    <% end %>
   </div>
 
 </div>
