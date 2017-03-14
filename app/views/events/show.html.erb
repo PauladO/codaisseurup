@@ -1,0 +1,25 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @event.name %></div>
+
+  <div class="panel-body">
+
+    <p>Location: <%= @event.location %></p>
+    <p>Host: <%= @event.user.email %></p>
+
+    <!-- About -->
+    <h4>About</h4>
+    <p><%= @event.description %></p>
+
+    <!-- Amenities -->
+    <h4></h4>
+    <ul class="amenities">
+      <li>Maximum number of participants: <%= @event.capacity %><%= @event.capacity > 1 ? " visitors" : " visitor" %></li>
+      <li><%= @event.includes_food ? "There will be food at this event." : "Food not included." %></li>
+      <li><%= @event.includes_drinks ? "There will be drinks at this event." : "Drinks not included." %></li>
+    </ul>
+
+  </div>
+
+</div>
+
+<%= link_to "Back", events_path, class: "btn btn-default" %>
