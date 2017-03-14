@@ -1,14 +1,32 @@
-<h1>Your events</h1>
-<hr />
+<div class="row">
+  <div class="col-md-9">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        Your events
+      </div>
+      <div class="panel-body">
 
-<% @events.each do |event| %>
-  <h3><%= event.name %></h3>
-  <p><%= event.description %></p>
+        <% @events.each do |event| %>
+        <div class="row">
+          <div class="col-md-7">
+            <h4><%= event.name %></h4>
+            <p><%= event.description %></p>
+            <ul>
+              <li>location:  <%= event.location %></li>
+              <li>Price:   <%= event.price %></li>
+            </ul>
+          </div>
 
-  <ul>
-    <li>location:  <%= event.location %></li>
-    <li>Price:   <%= event.price %></li>
+          <div class="col-md-3 right">
+            <%= link_to "View", event, class: "btn btn-default" %>
+            <%= link_to "Update", edit_event_path(event), class: "btn btn-default" %>
+          </div>
+        </div>
+        <% end %>
 
-  </ul>
+      </div>
+    </div>
 
-<% end %>
+    <%= link_to "Add new event", new_event_path, class: "btn btn-primary" %>
+  </div>
+</div>
