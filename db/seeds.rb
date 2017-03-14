@@ -1,6 +1,6 @@
-User.destroy_all
 Event.destroy_all
 Category.destroy_all
+User.delete_all
 
 user1 = User.create(email: "timmy@up.com", password: "yay1234")
 
