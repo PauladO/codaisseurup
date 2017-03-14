@@ -1,4 +1,8 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:show]
+
+
   def index
     @events = current_user.events
   end
