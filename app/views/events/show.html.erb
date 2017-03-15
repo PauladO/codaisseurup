@@ -16,7 +16,7 @@
     <p>Food included: <%= @event.includes_food ? "Yes" : "No" %></p>
     <p>Status:  <%= @event.active ? "Active" : "Inactive" %></p>
     <hr />
-    <h5>Themes</h5>
+    <h5>Categories</h5>
     <% @categories.each do |category| %>
       <span class="label label-success"><%= category.name %></span>
     <% end %>
