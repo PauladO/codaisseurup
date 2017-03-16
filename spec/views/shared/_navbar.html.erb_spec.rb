@@ -22,4 +22,5 @@ describe "shared/_navbar.html.erb" do
       expect(rendered).to have_content profile.last_name
     end
   end
+
 end
