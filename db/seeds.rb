@@ -1,5 +1,6 @@
-Category.destroy_all
+
 User.destroy_all
+
 
 user1 = User.create(email: "timmy@up.com", password: "yay1234")
 
