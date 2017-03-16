@@ -1,15 +1,22 @@
+Photo.delete_all
+Category.delete_all
+Event.delete_all
+Profile.delete_all
+User.delete_all
 
-User.destroy_all
 
 
-user1 = User.create(email: "timmy@up.com", password: "yay1234")
 
 category1 = Category.create(name: "Birthday party")
 category2 = Category.create(name: "Dance party")
 category3 = Category.create(name: "Wine tasting")
 category4 = Category.create(name: "Kids event")
 
+user1 = User.create(email: "timmy@up.com", password: "yay1234")
 
+photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/doei2x1xz/image/upload/v1489671140/red_carpet_v07jdj.jpg")
+photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/doei2x1xz/image/upload/v1489671140/bg-slide-01_x57tqf.jpg")
+photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/doei2x1xz/image/upload/v1489663161/sample.jpg")
 
 event1 = Event.create(name: "Funtimes",
  description: "It's funtimes! yay!",
@@ -22,4 +29,4 @@ event1 = Event.create(name: "Funtimes",
  ends_at: DateTime.new(2017,4,3,15,0,0),
  active: true,
  user: user1,
- categories: [category1])
+ categories: [category1], photos: [photo1, photo2, photo3])
