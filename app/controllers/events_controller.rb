@@ -31,8 +31,8 @@ class EventsController < ApplicationController
   end
 
   def edit
-    if current_user == @event.user.id
-      @photos = @room.photos
+    if current_user.id == @event.user.id
+      @photos = @event.photos
     else
       redirect_to root_path, notice: "You don't have permission."
     end
@@ -42,10 +42,11 @@ class EventsController < ApplicationController
     if @event.update(events_params)
       image_params.each do |image|
         @event.photos.create(image: image)
-      end    
-      redirect_to @event, notice: "Event successfully updated"
+      end
+
+      redirect_to edit_event_path(@event), notice: "Event successfully updated"
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -59,6 +60,6 @@ class EventsController < ApplicationController
     end
 
     def image_params
-      params[:image].present? ? params.require(:image) : []
+      params[:images].present? ? params.require(:images) : []
     end
 end
