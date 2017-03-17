@@ -58,7 +58,7 @@ RSpec.describe Event, type: :model do
     let(:host_user) { create :user, email: "host@mail.com" }
 
     let!(:event) { create :event, user: host_user }
-    let!(:registration) { create :registration, user: guest_user }
+    let!(:registration) { create :registration, event: event, user: guest_user }
 
     it "has guests" do
       expect(event.guests).to include(guest_user)

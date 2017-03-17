@@ -8,7 +8,7 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true, length: {maximum: 500}
   validates :starts_at, presence: true
-  validate :starts_at_must_be_before_ends_at_time
+  # validates :starts_at_must_be_before_ends_at_time == true
 
   def is_free?
     price == 0
@@ -20,6 +20,9 @@ class Event < ApplicationRecord
 
   private
     def starts_at_must_be_before_ends_at_time
-      errors.add(:starts_at, "must be before end time") unless starts_at < ends_at
+      if starts_at < ends_at
+        errors.add(:starts_at, "must be before end time") unless
+        true
+      end
     end
 end
