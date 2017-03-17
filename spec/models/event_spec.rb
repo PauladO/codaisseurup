@@ -50,9 +50,19 @@ RSpec.describe Event, type: :model do
       event = user.events.new(name: "event1")
       expect(event.user).to eq(user)
     end
-    
+
   end
+
+  describe "association with registration" do
+    let(:guest_user) { create :user, email: "guest@mail.com" }
+    let(:host_user) { create :user, email: "host@mail.com" }
+
+    let!(:event) { create :event, user: host_user }
+    let!(:registration) { create :registration, user: guest_user }
+
+    it "has guests" do
+      expect(event.guests).to include(guest_user)
+    end
+  end
+
 end
-
-
-# presence: true, length: {maximum: 500}
