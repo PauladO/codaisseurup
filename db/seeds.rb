@@ -5,8 +5,6 @@ Profile.delete_all
 User.delete_all
 
 
-
-
 category1 = Category.create(name: "Birthday party")
 category2 = Category.create(name: "Dance party")
 category3 = Category.create(name: "Wine tasting")
@@ -30,3 +28,5 @@ event1 = Event.create(name: "Funtimes",
  active: true,
  user: user1,
  categories: [category1], photos: [photo1, photo2, photo3])
+
+registration1 = Registration.create(user: user1, event: event1, price: 10, status: "yay", guest_count: 2)
